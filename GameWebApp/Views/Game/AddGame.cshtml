@@ -1,0 +1,100 @@
+@model MidsForms.Models.Game
+
+@{
+    List<SelectListItem> categories = new List<SelectListItem> {
+        new SelectListItem {Text = "Action", Value = "Action"},
+        new SelectListItem {Text = "Adventure", Value = "Adventure"},
+        new SelectListItem {Text = "Competitive", Value = "Competitive"},
+        new SelectListItem {Text = "Open World", Value = "Open World"},
+    };
+}
+
+<h2>AddGame</h2>
+
+@using (Html.BeginForm()) {
+
+    <table class="table">
+        <tr>
+                
+            <td>@Html.LabelFor(g => g.Id)</td>
+            <td>@Html.EditorFor(x => x.Id)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(x => x.Name)</td>
+            <td>@Html.EditorFor(x => x.Name)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(x => x.Developer)</td>
+            <td>@Html.EditorFor(x => x.Developer)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(x => x.Publisher)</td>
+            <td>@Html.EditorFor(x => x.Publisher)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(x => x.Category)</td>
+            <td>@Html.DropDownListFor(x => x.Category, categories)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(x => x.ReleaseDate)</td>
+            <td>@Html.TextBoxFor(x => x.ReleaseDate, new { type = "Date" })</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(x => x.Pov)</td>
+            <td>
+                @Html.RadioButtonFor(x => x.Pov, "TPP") <b>TPP</b>
+                @Html.RadioButtonFor(x => x.Pov, "FPP") <b>FPP</b>
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(x => x.Pg18) </td>
+            <td>@Html.CheckBoxFor(x => x.Pg18) </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(x => x.Price)</td>
+            <td>@Html.EditorFor(x => x.Price)</td>
+        </tr>
+    </table>
+    <input type="submit" />
+}
+
+@if (IsPost) {
+    <table class="table table-primary">
+        <tr>
+            <td>Id: </td>
+            <td>@Model.Id</td>
+        </tr>       
+        <tr>
+            <td>Name: </td>
+            <td>@Model.Name</td>
+        </tr>      
+        <tr>
+            <td>Developer: </td>
+            <td>@Model.Developer</td>
+        </tr>    
+        <tr>
+            <td>Publisher: </td>
+            <td>@Model.Publisher</td>
+        </tr>
+        <tr>
+            <td>Category: </td>
+            <td>@Model.Category</td>
+        </tr>
+        <tr>
+            <td>Pov: </td>
+            <td>@Model.Pov</td>
+        </tr>
+        <tr>
+            <td>Date: </td>
+            <td>@Model.ReleaseDate</td>
+        </tr>
+        <tr>
+            <td>Price: </td>
+            <td>@Model.Price</td>
+        </tr>
+        <tr>
+            <td>Mature Audience: </td>
+            <td>@Model.MatureAudience</td>
+        </tr>
+    </table>
+ } 
