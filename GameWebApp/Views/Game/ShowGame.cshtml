@@ -1,0 +1,53 @@
+﻿@model List<MidsForms.Models.Game>
+@{
+    ViewBag.Title = "ShowGame";
+}
+
+<h2>ShowGame</h2>
+<div class="row">
+    @foreach(var item in Model) {
+        <div class="col-lg-3">
+            <div class="card border-info mb-3">
+                <div class="card-header">@item.Name</div>
+                <div class="card-body">
+                    <table class="table">
+                        <tr>
+                            <td>ID:</td>
+                            <td>@item.Id</td>
+                        </tr>
+                        <tr>
+                            <td>Category:</td>
+                            <td>@item.Category</td>
+                        </tr>
+                        <tr>
+                            <td>Category:</td>
+                            <td>@item.Developer</td>
+                        </tr>
+                        <tr>
+                            <td>Category:</td>
+                            <td>@item.Publisher</td>
+                        </tr>
+                        <tr>
+                            <td>POV:</td>
+                            <td>@item.Pov</td>
+                        </tr>
+                        <tr>
+                            <td>Release Date:</td>
+                            <td>@item.ReleaseDate<td>
+                        </tr>
+                        <tr>
+                            <td>Price:</td>
+                            <td>@item.Price<td>
+                        </tr>
+                        <tr>
+                            <td>Mature Audience:</td>
+                            <td>@item.MatureAudience<td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+     }
+</div>
+
