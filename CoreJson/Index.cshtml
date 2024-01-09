@@ -1,0 +1,26 @@
+<form method="post" name="productForm">
+
+	<label>Product id:</label>
+	<input name="productId" id="prId" />
+	<label>Product Name:</label>
+	<input name="productName" id="prName" />
+	<label>Product Price:</label>
+	<input name="productPrice" id="prPrice" />
+
+	<input type="hidden" name="productData" id="productData" />
+
+	<button type="submit" onclick="processData()" > Submit</button>
+
+</form>
+
+<script>
+	const processData = () => {
+		const obj = {
+			productId: parseInt(document.getElementById("prId").value),
+			productName: document.getElementById("prName").value,
+			productPrice: parseFloat(document.getElementById("prPrice").value)
+		}
+		document.getElementById("productData").value = JSON.stringify(obj);
+	}
+</script>
+
